@@ -9,7 +9,7 @@ def fetch_wilayas():
         for entry in jsonData:
             data.update(
                 {
-                    entry['city'] : (entry['lat'],entry['lng']),
+                    entry['city'] : [entry['lat'],entry['lng']],
                 }
             )
         return data
