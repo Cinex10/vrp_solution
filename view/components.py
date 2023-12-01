@@ -1,10 +1,8 @@
-import graphviz
 import streamlit as st
 import pandas as pd
 import numpy as np
 from data.data import fetch_wilayas
 from src.main import *
-import pydeck as pdk
 
 
 
