@@ -42,7 +42,6 @@ def location_multiselect():
 def show_result():
     st.title('Result')
     data = {}
-    data['capacity'] = 5
     data['nodes'] = [{'label' : 'Depot', 'demand' : 0, 'posX' : 36.7539, 'posY' : 3.0589}]
     for index,node in enumerate(st.session_state['nodes']):
         demand = st.session_state['demands'][index]
@@ -51,9 +50,9 @@ def show_result():
         depot = {'label' : node, 'demand' : demand, 'posX' : lat, 'posY' : lng}
         data['nodes'].append(depot)
     with st.spinner('Wait for it...'):
-        result,cost = vrp(data=data,popsize=50,iterations=100)        
+        result,cost = vrp(data=data)        
     for wilaya in result:                        
-        st.write(wilaya)
+        st.markdown(f'#### {wilaya}')
     st.markdown('## The cost is :green[{:.2f}]'.format(cost))
         # df = []
 # 

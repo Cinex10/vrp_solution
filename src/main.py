@@ -2,10 +2,13 @@
 import sys
 import random
 import math
+from config import *
 
-def vrp(data,popsize,iterations):
+def vrp(data):
 	pop = []
-
+	popsize =  POPULATION_SIZE
+	iterations = NB_ITERATIONS
+	capacity = CAPACITY
 	# Generating random initial population
 	for i in range(popsize):
 		p = list(range(1, len(data['nodes'])))
@@ -108,7 +111,7 @@ def adjust(p,data):
 	# Adjust capacity exceed
 	i = 0
 	s = 0.0
-	cap = data['capacity']
+	cap = CAPACITY
 	while i < len(p):
 		s += data['nodes'][p[i]]['demand']
 		if s > cap:
